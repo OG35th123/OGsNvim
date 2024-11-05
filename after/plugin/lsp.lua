@@ -2,6 +2,7 @@ local lsp_zero = require('lsp-zero')
 local cmp = require('cmp')
 require("luasnip.loaders.from_vscode").lazy_load()
 require("vim-react-snippets").lazy_load()
+require('mini.comment').setup()
 
 -- lsp_zero.on_attach(function(client, bufnr)
 --     lsp_zero.default_keymaps({ buffer = bufnr })
@@ -25,8 +26,13 @@ require('mason-lspconfig').setup({
         function(server_name)
             require('lspconfig')[server_name].setup({})
         end,
+
     },
 })
+local pid = vim.fn.getpid()
+require('lspconfig').omnisharp.setup {
+    cmd = { "omnisharp", "-z", "--hostPID", tostring(pid), "DotNet:enablePackageRestore=false", "--encoding", "utf-8", "--languageserver", "FormattingOptions:EnableEditorConfigSupport=true", "Sdk:IncludePreReleases=true" },
+}
 
 local pid = vim.fn.getpid()
 require('lspconfig').omnisharp.setup {

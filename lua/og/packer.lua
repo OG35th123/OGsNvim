@@ -12,11 +12,16 @@ return require('packer').startup(function(use)
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
 
+<<<<<<< HEAD:lua/oliver/packer.lua
     use { "catppuccin/nvim", as = "catppuccin" }
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
+=======
+    use('echasnovski/mini.nvim')
+
+>>>>>>> refs/remotes/origin/main:lua/og/packer.lua
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
     use('nvim-lua/plenary.nvim')
     use('ThePrimeagen/harpoon')
@@ -31,10 +36,18 @@ return require('packer').startup(function(use)
         end
     }
 
+<<<<<<< HEAD:lua/oliver/packer.lua
     use('echasnovski/mini.nvim')
 
     use('airblade/vim-gitgutter')
 
+=======
+    use { "catppuccin/nvim", as = "catppuccin" }
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    }
+>>>>>>> refs/remotes/origin/main:lua/og/packer.lua
     use("hrsh7th/nvim-cmp")
     use("hrsh7th/cmp-nvim-lsp")
     use("L3MON4D3/LuaSnip")
@@ -48,6 +61,10 @@ return require('packer').startup(function(use)
         end,
     })
 
+
+
+    use('neovim/nvim-lspconfig')
+    use('hrsh7th/nvim-compe')
     use {
 
         'VonHeikemen/lsp-zero.nvim',
@@ -63,7 +80,10 @@ return require('packer').startup(function(use)
             { 'L3MON4D3/LuaSnip' },
         }
     }
+<<<<<<< HEAD:lua/oliver/packer.lua
     -- rust plugins
+=======
+>>>>>>> refs/remotes/origin/main:lua/og/packer.lua
     use 'simrat39/rust-tools.nvim'
     use 'mfussenegger/nvim-dap'
 end)
