@@ -12,10 +12,11 @@ return require('packer').startup(function(use)
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
 
-
-    use({ 'rose-pine/neovim', as = 'rose-pine' })
-    vim.cmd("colorscheme rose-pine-main")
-
+    use { "catppuccin/nvim", as = "catppuccin" }
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    }
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
     use('nvim-lua/plenary.nvim')
     use('ThePrimeagen/harpoon')
@@ -30,7 +31,9 @@ return require('packer').startup(function(use)
         end
     }
 
+    use('echasnovski/mini.nvim')
 
+    use('airblade/vim-gitgutter')
 
     use("hrsh7th/nvim-cmp")
     use("hrsh7th/cmp-nvim-lsp")
@@ -46,6 +49,7 @@ return require('packer').startup(function(use)
     })
 
     use {
+
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v3.x',
         requires = {
@@ -59,4 +63,7 @@ return require('packer').startup(function(use)
             { 'L3MON4D3/LuaSnip' },
         }
     }
+    -- rust plugins
+    use 'simrat39/rust-tools.nvim'
+    use 'mfussenegger/nvim-dap'
 end)
